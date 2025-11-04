@@ -4,8 +4,6 @@
 
 The objective of this assessment is to build a **real-time fleet tracking dashboard** using realistic vehicle trip data. You'll work with comprehensive fleet tracking events to create an interactive dashboard that visualizes vehicle movements, metrics, and operational insights. This assessment tests your skills in real-time data processing, dashboard design, and fleet management visualization.
 
-### We encourage the use of AI and LLM tools for this assessment! However, you must understand what you're building and be able to explain your implementation decisions.
-
 ## Dataset
 
 You have two options for obtaining your assessment data:
@@ -117,6 +115,10 @@ Your submission will be evaluated based on:
 **Ready to build your fleet tracking dashboard? Start by generating your unique assessment data!**
 
 📖 **Next Step**: [HOW_TO_GENERATE_DATA.md](./HOW_TO_GENERATE_DATA.md)
+
+### AI and LLM Usage
+
+We encourage the use of AI and LLM tools for this assessment! However, you must understand what you're building and be able to explain your implementation decisions.
 
 ---
 
