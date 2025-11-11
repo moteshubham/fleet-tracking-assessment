@@ -8,17 +8,15 @@ The objective of this assessment is to build a **real-time fleet tracking dashbo
 
 You have two options for obtaining your assessment data:
 
-### Option 1: Generate Your Own Unique Data (Highly Recommended)
-Generate your own unique trip data using our fleet tracking simulator. This ensures you have a completely unique dataset and demonstrates technical proficiency.
+### DONE
+Dataset is generated at data-generator\assessment-2025-11-11-23-56-11
 
-**📖 [HOW_TO_GENERATE_DATA.md](./HOW_TO_GENERATE_DATA.md)** - Complete instructions for generating your assessment data
 
-### Option 2: Use Pre-generated Fallback Data
-If you encounter issues with data generation, pre-generated sample data is available in the `assessment-fallback-data/` folder.
+
 
 ## Data Structure
 
-Your dataset contains **5 simultaneous trips** being driven by different drivers across the United States:
+Above dataset contains **5 simultaneous trips** being driven by different drivers across the United States:
 
 1. **Cross-Country Long Haul** - Transcontinental freight delivery (10,000+ events)
 2. **Urban Dense Delivery** - Dense urban route with frequent updates (500+ events) 
