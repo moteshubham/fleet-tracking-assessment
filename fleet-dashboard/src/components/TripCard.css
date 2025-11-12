@@ -1,0 +1,232 @@
+.trip-card {
+  background: #111a22;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #324d67;
+}
+
+.trip-card:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.trip-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.trip-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.trip-title h3 {
+  font-size: 1.125rem;
+  color: white;
+  margin-bottom: 4px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.trip-id {
+  font-size: 0.75rem;
+  color: #92adc9;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-active {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+.status-completed {
+  background: rgba(6, 182, 212, 0.2);
+  color: #06b6d4;
+}
+
+.status-cancelled {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+}
+
+.status-pending {
+  background: rgba(146, 173, 201, 0.2);
+  color: #92adc9;
+}
+
+.trip-progress {
+  margin-bottom: 16px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #92adc9;
+  font-weight: 500;
+}
+
+.progress-bar-small {
+  height: 6px;
+  background: #233648;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill-small {
+  height: 100%;
+  background: linear-gradient(90deg, #137fec, #0ea5e9);
+  transition: width 0.3s ease;
+}
+
+.trip-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-item .metric-label {
+  font-size: 0.7rem;
+  color: #92adc9;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-item .metric-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.trip-status-indicators {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  flex-wrap: wrap;
+  border: 1px solid #324d67;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.status-indicator svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.indicator-label {
+  font-size: 0.75rem;
+  color: #92adc9;
+  font-weight: 500;
+}
+
+.indicator-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.trip-alerts-detailed {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 10px;
+  border-left: 3px solid #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.alert-header {
+  margin-bottom: 8px;
+}
+
+.alert-count {
+  font-weight: 600;
+  color: #ffc107;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.alert-types {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.alert-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.alert-badge.alert-warning {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.alert-badge.alert-moderate {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.alert-badge.alert-severe {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+}
+
+.trip-location,
+.trip-time {
+  font-size: 0.8rem;
+  color: #92adc9;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trip-location svg,
+.trip-time svg {
+  width: 14px;
+  height: 14px;
+}

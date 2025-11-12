@@ -1,0 +1,251 @@
+.live-trip-status {
+  background: #111a22;
+  border-radius: 12px;
+  border: 1px solid #324d67;
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #324d67;
+}
+
+.table-header h2 {
+  color: white;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.trip-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.trip-table thead {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.trip-table th {
+  padding: 12px 24px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #92adc9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #324d67;
+}
+
+.trip-table th:nth-child(1) {
+  width: 100px; /* Trip ID */
+}
+
+.trip-table th:nth-child(2) {
+  width: 120px; /* Vehicle */
+}
+
+.trip-table th:nth-child(3) {
+  width: 180px; /* Destination */
+}
+
+.trip-table th:nth-child(4) {
+  width: 140px; /* Progress */
+}
+
+.trip-table th:nth-child(5) {
+  width: 110px; /* Speed */
+}
+
+.trip-table th:nth-child(6) {
+  width: 100px; /* Fuel */
+}
+
+.trip-table th:nth-child(7) {
+  width: 100px; /* Battery */
+}
+
+.trip-table th:nth-child(8) {
+  width: 120px; /* Status */
+}
+
+.trip-table th:nth-child(9) {
+  width: 80px; /* Alerts */
+}
+
+.trip-table th.text-center {
+  text-align: center;
+}
+
+.trip-table tbody {
+  border-top: 1px solid #324d67;
+}
+
+.table-row {
+  border-bottom: 1px solid #324d67;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table-row td {
+  padding: 16px 24px;
+  font-size: 0.875rem;
+  color: #92adc9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-id-cell {
+  font-weight: 500;
+  color: #92adc9;
+  width: 100px;
+}
+
+.vehicle-cell {
+  font-weight: 500;
+  color: white;
+  width: 120px;
+}
+
+.destination-cell {
+  color: #92adc9;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-cell {
+  width: 140px;
+}
+
+.speed-cell {
+  width: 110px;
+}
+
+.fuel-cell {
+  width: 100px;
+}
+
+.battery-cell {
+  width: 100px;
+}
+
+.status-cell {
+  width: 120px;
+}
+
+.alerts-cell {
+  width: 80px;
+}
+
+.metric-cell-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metric-icon {
+  flex-shrink: 0;
+  color: #92adc9;
+}
+
+.metric-cell-content span {
+  font-weight: 500;
+  color: white;
+}
+
+.no-data {
+  color: #64748b;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  background: #233648;
+  border-radius: 9999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.status-cell {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.status-ongoing {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.status-finished {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.2);
+}
+
+.status-cancelled {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.2);
+}
+
+.status-pending {
+  color: #92adc9;
+  background: rgba(146, 173, 201, 0.2);
+}
+
+.alerts-cell {
+  text-align: center;
+}
+
+.alert-icon {
+  display: inline-block;
+}
+
+.alert-icon.warning {
+  color: #ffc107;
+}
+
+.alert-icon.severe {
+  color: #dc3545;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: scroll;
+  }
+
+  .trip-table th,
+  .trip-table td {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+}
+

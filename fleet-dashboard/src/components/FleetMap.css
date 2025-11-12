@@ -1,0 +1,371 @@
+.fleet-map-section {
+  background: #111a22;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 24px;
+  border: 1px solid #324d67;
+  overflow: hidden;
+  position: relative;
+  height: 480px;
+}
+
+.fleet-map-section h2 {
+  display: none;
+}
+
+.fleet-map-wrapper {
+  height: 480px;
+  width: 100%;
+  position: relative;
+}
+
+.fleet-map-container {
+  height: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.fleet-map-container .leaflet-container {
+  height: 480px !important;
+  width: 100% !important;
+  border-radius: 12px;
+  background: #1a1a1a;
+}
+
+.fleet-map-container .leaflet-tile-container img {
+  max-width: none !important;
+}
+
+.map-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 1000;
+}
+
+.map-control-button {
+  width: 40px;
+  height: 40px;
+  background: #111a22;
+  border: 1px solid #324d67;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-control-button:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: none;
+}
+
+.map-control-button:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.map-control-button:hover {
+  background: #192633;
+}
+
+.map-center-button {
+  width: 40px;
+  height: 40px;
+  background: #111a22;
+  border: 1px solid #324d67;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-center-button:hover {
+  background: #192633;
+}
+
+/* Enhanced Popup Styling */
+.leaflet-popup-content-wrapper {
+  background: #111a22 !important;
+  border: 1px solid #324d67 !important;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: #111a22 !important;
+  border: 1px solid #324d67 !important;
+}
+
+.map-popup {
+  min-width: 240px;
+  padding: 16px;
+  color: white;
+}
+
+.map-popup-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #324d67;
+  border-left: 3px solid;
+  padding-left: 12px;
+}
+
+.map-popup-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: white;
+}
+
+.map-popup-trip-id {
+  font-size: 0.75rem;
+  color: #92adc9;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.map-popup-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.map-popup-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.map-popup-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: #92adc9;
+}
+
+.map-popup-metric-label svg {
+  flex-shrink: 0;
+}
+
+.map-popup-metric-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+.map-popup-alerts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  color: #ef4444;
+}
+
+.map-popup-button {
+  width: 100%;
+  padding: 8px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.map-popup-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.truck-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.truck-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  transition: transform 0.2s ease;
+}
+
+.truck-icon-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.truck-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Leaflet tooltip styling */
+.leaflet-tooltip {
+  background: #111a22 !important;
+  border: 1px solid #324d67 !important;
+  color: white !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-tooltip-top:before {
+  border-top-color: #324d67 !important;
+}
+
+.leaflet-tooltip-bottom:before {
+  border-bottom-color: #324d67 !important;
+}
+
+.leaflet-tooltip-left:before {
+  border-left-color: #324d67 !important;
+}
+
+.leaflet-tooltip-right:before {
+  border-right-color: #324d67 !important;
+}
+
+/* Map Legend */
+.map-legend {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: #111a22;
+  border: 1px solid #324d67;
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 1000;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.map-legend-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #324d67;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #92adc9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.map-legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.map-legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.map-legend-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.map-legend-vehicle {
+  color: white;
+  font-weight: 500;
+}
+
+.map-legend-progress {
+  color: #92adc9;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Smooth marker animation */
+.truck-icon-wrapper {
+  transition: transform 0.3s ease-out;
+}
+
+/* Map Theme Toggle */
+.map-theme-toggle {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+}
+
+.map-theme-button {
+  width: 40px;
+  height: 40px;
+  background: #111a22;
+  border: 1px solid #324d67;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-theme-button:hover {
+  background: #192633;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark theme map adjustments */
+.leaflet-container {
+  background: #0a0f14 !important;
+}
+
+.leaflet-control-zoom {
+  display: none !important;
+}
