@@ -4,7 +4,7 @@ A real-time fleet tracking dashboard built with React, Vite, and Leaflet that vi
 
 ## 🌐 Live Demo
 
-**Live URL:** [www.xyz.vercel.app](https://www.xyz.vercel.app)
+**Live URL:** [https://fleet-command-assessment.vercel.app/dashboard](https://fleet-command-assessment.vercel.app/dashboard)
 
 ## 📋 Dashboard Description
 
