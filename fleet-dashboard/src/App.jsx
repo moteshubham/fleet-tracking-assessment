@@ -17,6 +17,9 @@ import TripCard from './components/TripCard';
 import TripDetail from './components/TripDetail';
 import './App.css';
 
+// Shared simulation engine instance that persists across navigation
+let sharedSimulationEngine = null;
+
 // Dashboard Component
 function Dashboard() {
   const {
@@ -75,9 +78,22 @@ function Dashboard() {
   useEffect(() => {
     if (events.length === 0) return;
 
-    let eventCount = 0;
+    // Use shared engine if it exists, otherwise create new one
+    if (sharedSimulationEngine && sharedSimulationEngine.events === events) {
+      simulationRef.current = sharedSimulationEngine;
+      // Sync engine state with current processed events
+      const { processedEvents } = useFleetStore.getState();
+      sharedSimulationEngine.syncWithProcessedCount(processedEvents.length);
+      return;
+    }
 
-    // Create simulation engine with initial speed
+    let eventCount = 0;
+    
+    // Get current processed events count to restore position
+    const { processedEvents } = useFleetStore.getState();
+    const processedCount = processedEvents.length;
+
+    // Create simulation engine with initial speed and restore position
     const engine = new SimulationEngine(
       events,
       (event) => {
@@ -93,16 +109,17 @@ function Dashboard() {
         // Update simulation time and progress
         updateSimulationTime(time, progress);
       },
-      playbackSpeed // Pass initial speed
+      playbackSpeed, // Pass initial speed
+      processedCount // Pass current processed count to restore position
     );
 
+    // Store in shared variable and ref
+    sharedSimulationEngine = engine;
     simulationRef.current = engine;
 
-    // Cleanup on unmount
+    // Don't pause on unmount - preserve state when navigating
     return () => {
-      if (simulationRef.current) {
-        simulationRef.current.pause();
-      }
+      // Keep engine running when navigating away
     };
   }, [events, processEvent, updateSimulationTime, calculateFleetMetrics, playbackSpeed]);
 
@@ -286,52 +303,9 @@ function TripDetailPage() {
     initialize();
   }, [trips.length, setTrips, setEvents]);
 
-  // Initialize simulation engine when events are loaded
-  useEffect(() => {
-    if (events.length === 0) return;
-
-    let eventCount = 0;
-
-    const engine = new SimulationEngine(
-      events,
-      (event) => {
-        processEvent(event);
-        eventCount++;
-        if (eventCount % 50 === 0) {
-          calculateFleetMetrics();
-        }
-      },
-      (time, progress) => {
-        updateSimulationTime(time, progress);
-      },
-      playbackSpeed // Pass initial speed
-    );
-
-    simulationRef.current = engine;
-
-    return () => {
-      if (simulationRef.current) {
-        simulationRef.current.pause();
-      }
-    };
-  }, [events, processEvent, updateSimulationTime, calculateFleetMetrics, playbackSpeed]);
-
-  // Sync simulation state
-  useEffect(() => {
-    if (simulationRef.current) {
-      if (isPlaying && !simulationRef.current.isPlaying) {
-        simulationRef.current.play();
-      } else if (!isPlaying && simulationRef.current.isPlaying) {
-        simulationRef.current.pause();
-      }
-    }
-  }, [isPlaying]);
-
-  useEffect(() => {
-    if (simulationRef.current && simulationRef.current.speed !== playbackSpeed) {
-      simulationRef.current.setSpeed(playbackSpeed);
-    }
-  }, [playbackSpeed]);
+  // Don't create a separate engine on trip detail page
+  // The Dashboard's engine continues running and updates the shared store
+  // Playback controls here just update the store, which the Dashboard engine responds to
 
   const handlePlay = () => {
     setPlaying(true);

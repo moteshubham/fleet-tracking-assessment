@@ -4,11 +4,11 @@
  */
 
 export class SimulationEngine {
-  constructor(events, onEventProcessed, onTimeUpdate, initialSpeed = 1) {
+  constructor(events, onEventProcessed, onTimeUpdate, initialSpeed = 1, initialProcessedCount = 0) {
     this.events = events;
     this.onEventProcessed = onEventProcessed;
     this.onTimeUpdate = onTimeUpdate;
-    this.currentIndex = 0;
+    this.currentIndex = initialProcessedCount; // Start from where we left off
     this.isPlaying = false;
     this.speed = initialSpeed; // 1x, 5x, 10x, 50x, 100x, 200x speed multiplier
     this.intervalId = null;
@@ -228,6 +228,24 @@ export class SimulationEngine {
     }
     
     return this.timeRange.start;
+  }
+
+  /**
+   * Sync engine state with external processed events count
+   * Used when restoring engine state
+   */
+  syncWithProcessedCount(processedCount) {
+    if (processedCount !== this.currentIndex) {
+      this.currentIndex = processedCount;
+      // Update actualStartTime to reflect current position
+      if (processedCount > 0 && processedCount < this.events.length) {
+        const lastEventTime = new Date(this.events[processedCount - 1].timestamp);
+        const elapsed = lastEventTime.getTime() - this.timeRange.start.getTime();
+        if (this.actualStartTime) {
+          this.actualStartTime = Date.now() - (elapsed / this.speed);
+        }
+      }
+    }
   }
 
   /**
